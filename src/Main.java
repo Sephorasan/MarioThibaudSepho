@@ -13,10 +13,10 @@ public class Main extends Application {
     private Scene scene, scene2, scene3, scene4;
     private ImageView mario;
     private ImageView fond1;
+
 }
 
 public static void main(String[] args){Application.launch(Main.class, args);}
-
 
 
 private void initBackground(){
