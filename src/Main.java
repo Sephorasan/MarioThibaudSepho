@@ -20,7 +20,7 @@ public static void main(String[] args){Application.launch(Main.class, args);}
 
 
 private void initBackground(){
-    fond1 = new ImageView();
+    fond1 = new ImageView("Asset/Image/fond1.png");
     Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds();
     fond1.setFitHeight((int) primaryScreenBounds.getHeight());
     fond1.setFitWidth((int) primaryScreenBounds.getWidth();
