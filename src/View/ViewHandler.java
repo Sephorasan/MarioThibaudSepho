@@ -3,9 +3,12 @@ package View;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.awt.*;
 
 public class ViewHandler extends Application {
     private Stage primaryStage;
@@ -18,7 +21,7 @@ public class ViewHandler extends Application {
         Group root2 = new Group();
         Group root3 = new Group();
         Group root4 = new Group();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 800,500, Color.GREEN);
         Scene scene2 = new Scene(root2);
         Scene scene3 = new Scene(root3);
         Scene scene4 = new Scene(root4);
