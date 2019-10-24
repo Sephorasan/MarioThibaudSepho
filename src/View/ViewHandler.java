@@ -52,8 +52,12 @@ public class ViewHandler extends Application {
         btn3.setOnAction(event -> primaryStage.close());
 
         initBackground();
+        initPerso();
+        initMarche();
+        initSaute();
 
         root.getChildren().addAll(fond1);
+        root.getChildren().add(mario);
         root.getChildren().add(btn1);
         root.getChildren().add(btn2);
         root.getChildren().add(btn3);
@@ -82,5 +86,22 @@ public class ViewHandler extends Application {
         bouton.setLayoutY(largeur);
         bouton.setText(texteDuBouton);
         return bouton;
+    }
+    private void initPerso() {
+        mario = new ImageView("Asset/Image/mario.gif");
+        mario.setX(200);
+        mario.setY(680);
+        mario.setScaleX(0.2);
+        mario.setScaleY(0.2);
+        mario.setRotate(20);
+    }
+
+    private void initMarche(){
+        mario.setOnMouseEntered(event -> mario.setLayoutX(+20));
+    }
+
+    private void initSaute(){
+        mario.setOnMousePressed(event -> mario.setLayoutY(-30));
+        mario.setOnMouseReleased(event -> mario.setLayoutY(0));
     }
 }
