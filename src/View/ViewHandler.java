@@ -122,7 +122,7 @@ public class ViewHandler extends Application {
     }
 
     private void initBackground2(){
-        fond2 = new ImageView("Asset/Image/fond2.jpg");
+        fond2 = new ImageView("Asset/Image/herbe.jpg");
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds();
         fond2.setFitHeight((int) primaryScreenBounds.getHeight());
         fond2.setFitWidth((int) primaryScreenBounds.getWidth());
