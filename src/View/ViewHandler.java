@@ -13,7 +13,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.File;
 
@@ -24,6 +23,7 @@ public class ViewHandler extends Application {
     private ImageView mario;
     private ImageView fond1;
     private ImageView fond2;
+    private ImageView fond3;
     private Button btn1;
     private Button btn2;
     private Button btn3;
@@ -38,8 +38,8 @@ public class ViewHandler extends Application {
         Group root3 = new Group();
         Group root4 = new Group();
         Scene scene = new Scene(root, 800,500, Color.BLACK);
-        Scene scene2 = new Scene(root2, 800,500, Color.WHITE);
-        Scene scene3 = new Scene(root3, 800,500, Color.PINK);
+        Scene scene2 = new Scene(root2, Color.WHITE);
+        Scene scene3 = new Scene(root3, Color.PINK);
         Scene scene4 = new Scene(root4);
         Text texte = new Text();
 
@@ -68,6 +68,7 @@ public class ViewHandler extends Application {
         initPerso();
         initMarche();
         initSaute();
+        initBackground3();
 
         root.getChildren().addAll(fond1);
         root.getChildren().add(btn1);
@@ -77,6 +78,7 @@ public class ViewHandler extends Application {
         root2.getChildren().addAll(fond2);
         root2.getChildren().add(btn4);
         root2.getChildren().add(mario);
+        root3.getChildren().addAll(fond3);
 
         primaryStage.setFullScreen(true);
         primaryStage.setScene(scene);
@@ -126,5 +128,11 @@ public class ViewHandler extends Application {
     private void initSaute(){
         mario.setOnMousePressed(event -> mario.setLayoutY(-30));
         mario.setOnMouseReleased(event -> mario.setLayoutY(0));
+    }
+    private void initBackground3(){
+        fond3 = new ImageView("Asset/Image/fond3.jpg");
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds();
+        fond3.setFitHeight((int) primaryScreenBounds.getHeight());
+        fond3.setFitWidth((int) primaryScreenBounds.getWidth());
     }
 }
