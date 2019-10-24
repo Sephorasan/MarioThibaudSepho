@@ -27,6 +27,7 @@ public class ViewHandler extends Application {
     private Button btn1;
     private Button btn2;
     private Button btn3;
+    private Button btn4;
 
     @Override
     public void start(Stage primaryStage){
@@ -49,6 +50,7 @@ public class ViewHandler extends Application {
         btn1 = initButton(700,400,"Jouer");
         btn2 = initButton(700,450,"Options");
         btn3 = initButton(700,500,"Quitter");
+        btn4 = initButton(700,500,"Quitter");
 
         texte.setText("MARIO-PELLE");
         texte.setX(550);
@@ -59,6 +61,7 @@ public class ViewHandler extends Application {
         btn1.setOnAction(event -> primaryStage.setScene(scene2));
         btn2.setOnAction(event -> primaryStage.setScene(scene3));
         btn3.setOnAction(event -> primaryStage.close());
+        btn4.setOnAction(event -> primaryStage.close());
 
         initBackground();
         initBackground2();
@@ -74,6 +77,7 @@ public class ViewHandler extends Application {
         root.getChildren().add(btn3);
         root.getChildren().add(texte);
         root2.getChildren().addAll(fond2);
+        root2.getChildren().add(btn4);
 
         primaryStage.setFullScreen(true);
         primaryStage.setScene(scene);
