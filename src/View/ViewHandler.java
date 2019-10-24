@@ -24,7 +24,6 @@ public class ViewHandler extends Application {
     private Button btn2;
     private Button btn3;
 
-
     @Override
     public void start(Stage primaryStage){
         this.primaryStage = primaryStage;
@@ -60,9 +59,8 @@ public class ViewHandler extends Application {
         root.getChildren().add(btn3);
         root.getChildren().add(texte);
 
-
-        primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
+        primaryStage.setScene(scene);
         primaryStage.setTitle("Mario");
         //primaryStage.setFullScreenExitHint("");
         //primaryStage.setResizable(false);
@@ -70,7 +68,6 @@ public class ViewHandler extends Application {
         primaryStage.show();
 
     }
-
 
     private void initBackground(){
         fond1 = new ImageView("Asset/Image/fond1.png");
