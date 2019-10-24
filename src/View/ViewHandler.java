@@ -23,6 +23,7 @@ public class ViewHandler extends Application {
     private Scene scene, scene2, scene3, scene4;
     private ImageView mario;
     private ImageView fond1;
+    private ImageView fond2;
     private Button btn1;
     private Button btn2;
     private Button btn3;
@@ -41,16 +42,14 @@ public class ViewHandler extends Application {
         Scene scene4 = new Scene(root4);
         Text texte = new Text();
 
-
-
         final File file = new File("src/Asset/Son/mario-theme.mp3");
-
         final Media media = new Media(file.toURI().toString());
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
 
         btn1 = initButton(700,400,"Jouer");
         btn2 = initButton(700,450,"Options");
         btn3 = initButton(700,500,"Quitter");
+
         texte.setText("MARIO-PELLE");
         texte.setX(550);
         texte.setY(250);
@@ -62,6 +61,8 @@ public class ViewHandler extends Application {
         btn3.setOnAction(event -> primaryStage.close());
 
         initBackground();
+        initBackground2();
+
         initPerso();
         initMarche();
         initSaute();
@@ -72,6 +73,7 @@ public class ViewHandler extends Application {
         root.getChildren().add(btn2);
         root.getChildren().add(btn3);
         root.getChildren().add(texte);
+        root2.getChildren().addAll(fond2);
 
         primaryStage.setFullScreen(true);
         primaryStage.setScene(scene);
@@ -91,6 +93,13 @@ public class ViewHandler extends Application {
         fond1.setFitWidth((int) primaryScreenBounds.getWidth());
     }
 
+    private void initBackground2(){
+        fond2 = new ImageView("Asset/Image/fond2.jpg");
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds();
+        fond2.setFitHeight((int) primaryScreenBounds.getHeight());
+        fond2.setFitWidth((int) primaryScreenBounds.getWidth());
+    }
+
     private Button initButton(int longueur, int largeur, String texteDuBouton) {
         Button bouton = new Button();
         bouton.setLayoutX(longueur);
@@ -98,6 +107,7 @@ public class ViewHandler extends Application {
         bouton.setText(texteDuBouton);
         return bouton;
     }
+
     private void initPerso() {
         mario = new ImageView("Asset/Image/mario.gif");
         mario.setX(180);
