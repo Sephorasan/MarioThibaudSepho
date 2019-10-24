@@ -65,19 +65,18 @@ public class ViewHandler extends Application {
 
         initBackground();
         initBackground2();
-
         initPerso();
         initMarche();
         initSaute();
 
         root.getChildren().addAll(fond1);
-        root.getChildren().add(mario);
         root.getChildren().add(btn1);
         root.getChildren().add(btn2);
         root.getChildren().add(btn3);
         root.getChildren().add(texte);
         root2.getChildren().addAll(fond2);
         root2.getChildren().add(btn4);
+        root2.getChildren().add(mario);
 
         primaryStage.setFullScreen(true);
         primaryStage.setScene(scene);
@@ -115,7 +114,7 @@ public class ViewHandler extends Application {
     private void initPerso() {
         mario = new ImageView("Asset/Image/mario.gif");
         mario.setX(180);
-        mario.setY(660);
+        mario.setY(630);
         mario.setScaleX(0.2);
         mario.setScaleY(0.2);
     }
