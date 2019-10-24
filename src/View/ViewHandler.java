@@ -6,6 +6,8 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -13,6 +15,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 
 
 public class ViewHandler extends Application {
@@ -37,6 +40,9 @@ public class ViewHandler extends Application {
         Scene scene3 = new Scene(root3, 800,500, Color.PINK);
         Scene scene4 = new Scene(root4);
         Text texte = new Text();
+        final File file = new File("src/Asset/Musique/super-mario-bros-2-overworld-theme.mp3");
+        final Media media = new Media(file.toURI().toString());
+        final MediaPlayer mediaPlayer = new MediaPlayer(media);
 
         btn1 = initButton(700,400,"Jouer");
         btn2 = initButton(700,450,"Options");
@@ -70,6 +76,7 @@ public class ViewHandler extends Application {
         //primaryStage.setResizable(false);
         //primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
+        mediaPlayer.play();
 
     }
 
