@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -41,6 +42,11 @@ public class ViewHandler extends Application {
         btn1 = initButton(700,400,"Jouer");
         btn2 = initButton(700,450,"Options");
         btn3 = initButton(700,500,"Quitter");
+        texte.setText("MARIO-PELLE");
+        texte.setX(550);
+        texte.setY(250);
+        texte.setFont(new Font("Indie flower",60));
+        texte.setFill(Color.ORANGE);
 
         btn1.setOnAction(event -> primaryStage.setScene(scene2));
         btn2.setOnAction(event -> primaryStage.setScene(scene3));
