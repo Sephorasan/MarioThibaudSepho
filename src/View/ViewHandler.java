@@ -40,7 +40,11 @@ public class ViewHandler extends Application {
         Scene scene3 = new Scene(root3, 800,500, Color.PINK);
         Scene scene4 = new Scene(root4);
         Text texte = new Text();
-        final File file = new File("src/Asset/Musique/super-mario-bros-2-overworld-theme.mp3");
+
+
+
+        final File file = new File("src/Asset/Son/mario-theme.mp3");
+
         final Media media = new Media(file.toURI().toString());
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
 
@@ -97,7 +101,7 @@ public class ViewHandler extends Application {
     private void initPerso() {
         mario = new ImageView("Asset/Image/mario.gif");
         mario.setX(180);
-        mario.setY(662);
+        mario.setY(660);
         mario.setScaleX(0.2);
         mario.setScaleY(0.2);
     }
