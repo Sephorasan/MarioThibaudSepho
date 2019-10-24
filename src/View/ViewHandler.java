@@ -1,5 +1,6 @@
 package View;
 
+import Tool.Path;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
@@ -58,21 +59,24 @@ public class ViewHandler extends Application {
 
 
         texte.setText("MARIO DEMINEUR");
-        texte.setX(550);
+        texte.setX(350);
         texte.setY(250);
-        texte.setFont(new Font("Indie flower",60));
+        Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 70);
+        texte.setFont(policeTitre);
         texte.setFill(Color.RED);
 
         texteM.setText("MARIO");
         texteM.setX(750);
         texteM.setY(750);
-        texteM.setFont(new Font("Indie flower",30));
+        Font policeTitreM = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
+        texteM.setFont(policeTitreM);
         texteM.setFill(Color.RED);
 
         texteY.setText("YOSHI");
         texteY.setX(350);
         texteY.setY(750);
-        texteY.setFont(new Font("Indie flower",30));
+        Font policeTitreY = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
+        texteY.setFont(policeTitreY);
         texteY.setFill(Color.GREEN);
 
         btn1.setOnAction(event -> primaryStage.setScene(scene2));
@@ -83,7 +87,6 @@ public class ViewHandler extends Application {
         initBackground();
         initBackground2();
         initPerso1();
-        initMarche();
         initSaute();
         //initBackground3();
         initPerso2();
@@ -140,8 +143,8 @@ public class ViewHandler extends Application {
         mario = new ImageView("Asset/Image/mario.gif");
         mario.setX(180);
         mario.setY(630);
-        mario.setScaleX(0.2);
-        mario.setScaleY(0.2);
+        mario.setScaleX(0.3);
+        mario.setScaleY(0.3);
     }
     private void initPerso2() {
         yoshi = new ImageView("Asset/Image/yoshi.gif");
@@ -156,10 +159,6 @@ public class ViewHandler extends Application {
         mario2.setY(500);
         mario2.setScaleX(0.6);
         mario2.setScaleY(0.6);
-    }
-
-    private void initMarche(){
-        mario.setOnMouseEntered(event -> mario.setLayoutX(+20));
     }
 
     private void initSaute(){
