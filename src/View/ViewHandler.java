@@ -55,7 +55,7 @@ public class ViewHandler extends Application {
         btn1 = initButton(700,400,"Jouer");
         btn2 = initButton(700,450,"Options");
         btn3 = initButton(700,500,"Quitter");
-        btn4 = initButton(700,500,"Quitter");
+        btn4 = initButton(700,500,"Retour");
 
 
         texte.setText("MARIO DEMINEUR");
@@ -82,7 +82,7 @@ public class ViewHandler extends Application {
         btn1.setOnAction(event -> primaryStage.setScene(scene2));
         btn2.setOnAction(event -> primaryStage.setScene(scene3));
         btn3.setOnAction(event -> primaryStage.close());
-        btn4.setOnAction(event -> primaryStage.close());
+        btn4.setOnAction(event -> primaryStage.setScene(scene));
 
         initBackground();
         initBackground2();
