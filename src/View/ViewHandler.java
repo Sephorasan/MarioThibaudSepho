@@ -89,11 +89,10 @@ public class ViewHandler extends Application {
     }
     private void initPerso() {
         mario = new ImageView("Asset/Image/mario.gif");
-        mario.setX(200);
-        mario.setY(680);
+        mario.setX(180);
+        mario.setY(662);
         mario.setScaleX(0.2);
         mario.setScaleY(0.2);
-        mario.setRotate(20);
     }
 
     private void initMarche(){
