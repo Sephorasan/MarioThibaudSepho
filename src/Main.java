@@ -1,3 +1,4 @@
+import View.ViewHandler;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
@@ -16,7 +17,7 @@ public class Main extends Application {
     private ImageView fond1;
 
 
-    public static void main(String[] args){Application.launch(Main.class, args);}
+    public static void main(String[] args){Application.launch(ViewHandler.class, args);}
 
 
     private void initBackground(){
