@@ -29,17 +29,24 @@ public class ViewMenu{
             Jouer = new Text("Jouer");
             Options  = new Text("Options");
             Quitter = new Text("Quitter");
-            Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase),30);
+            Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase),90);
             Title.setFont(policeTitre);
             Title.setFill(Color.RED);
+            Title.setX(550);
+            Title.setY(200);
             Jouer.setFont(policeTitre);
-            Jouer.setFill(Color.RED);
-            Jouer.setX();
-            Jouer.setY();
+            Jouer.setFill(Color.WHITE);
+            Jouer.setX(700);
+            Jouer.setY(450);
             Options.setFont(policeTitre);
-            Options.setFill(Color.RED);
+            Options.setFill(Color.WHITE);
+            Options.setX(700);
+            Options.setY(600);
             Quitter.setFont(policeTitre);
-            Quitter.setFill(Color.RED);
+            Quitter.setFill(Color.WHITE);
+            Quitter.setX(700);
+            Quitter.setY(750);
+
             Quitter.setOnMouseClicked(event -> primaryStage.close());
         /*
         Options.setOnMouseClicked(event -> primaryStage.setScene(scene3));
