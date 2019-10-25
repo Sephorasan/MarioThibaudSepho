@@ -47,6 +47,8 @@ public class ViewHandler extends Application {
         Text Jouer = new Text();
         Text Options = new Text();
         Text Quitter = new Text();
+        Text Retour = new Text();
+        Text RetourOptions = new Text();
 
         final File file = new File("src/Asset/Son/mario-theme.mp3");
         final Media media = new Media(file.toURI().toString());
@@ -97,6 +99,23 @@ public class ViewHandler extends Application {
         Quitter.setFill(Color.WHITE);
         Quitter.setOnMouseClicked(event -> primaryStage.close());
 
+        Retour.setText("Retour");
+        Retour.setX(1000);
+        Retour.setY(200);
+        Font policeTitreR = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
+        Retour.setFont(policeTitreR);
+        Retour.setFill(Color.WHITE);
+        Retour.setOnMouseClicked(event -> primaryStage.setScene(scene));
+
+        RetourOptions.setText("Retour");
+        RetourOptions.setX(1000);
+        RetourOptions.setY(200);
+        Font policeTitreRO = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
+        RetourOptions.setFont(policeTitreRO);
+        RetourOptions.setFill(Color.WHITE);
+        RetourOptions.setOnMouseClicked(event -> primaryStage.setScene(scene));
+
+
         initBackground();
         initBackground2();
         initPerso1();
@@ -112,11 +131,13 @@ public class ViewHandler extends Application {
         root.getChildren().add(Quitter);
         root2.getChildren().addAll(fond2);
         root2.getChildren().add(mario);
+        root2.getChildren().add(Retour);
         //root3.getChildren().addAll(fond3);
         root3.getChildren().add(yoshi);
         root3.getChildren().add(mario2);
         root3.getChildren().add(texteM);
         root3.getChildren().add(texteY);
+        root3.getChildren().add(RetourOptions);
 
         primaryStage.setFullScreen(true);
         primaryStage.setScene(scene);
