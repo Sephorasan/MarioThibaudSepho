@@ -47,7 +47,7 @@ public class ViewMenu{
         fond1.setFitHeight((int) primaryScreenBounds.getHeight());
         fond1.setFitWidth((int) primaryScreenBounds.getWidth());
     }
-        void setVueMenu() {
+        void setVueMenu(){
         root.getChildren().clear();
         root.getChildren().addAll(fond1);
         root.getChildren().add(Title);

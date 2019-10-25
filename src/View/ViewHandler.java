@@ -37,6 +37,7 @@ public class ViewHandler extends Application {
         final Media media = new Media(file.toURI().toString());
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
 
+        afficherMenuPrincipal();
         primaryStage.setFullScreen(true);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Mario");
