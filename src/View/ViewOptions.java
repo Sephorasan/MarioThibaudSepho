@@ -5,13 +5,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 public class ViewOptions {
-    private Group root3;
+    private Group root;
     private Text texteM, texteY, RetourOptions;
     private ImageView yoshi;
     private ImageView mario2;
 
     ViewOptions(Group root) {
-        this.root3 = root3;
+        this.root = root;
         //initText();
         initPerso2();
         initPerso3();
@@ -59,13 +59,13 @@ public class ViewOptions {
 }*/
     }
     void setVueOptions() {
-        root3.getChildren().add(yoshi);
-        root3.getChildren().add(mario2);
-        root3.getChildren().add(texteM);
-        root3.getChildren().add(texteY);
-        root3.getChildren().add(RetourOptions);
+        root.getChildren().clear();
+        root.getChildren().add(yoshi);
+        root.getChildren().add(mario2);
+        root.getChildren().add(texteM);
+        root.getChildren().add(texteY);
+        root.getChildren().add(RetourOptions);
     }
-
 }
 
 

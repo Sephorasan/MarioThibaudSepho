@@ -8,16 +8,17 @@ import javafx.stage.Screen;
 
 
 public class ViewJeu {
-    private Group root2;
+    private Group root;
     private ImageView mario;
     private ImageView fond2;
     private Text Retour;
 
-    ViewJeu(Group root2) {
-        this.root2 = root2;
+    ViewJeu(Group root) {
+        this.root = root;
         initBackground2();
         initPerso1();
     }
+
     private void initBackground2(){
         fond2 = new ImageView("Asset/Image/herbe.jpg");
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds();
@@ -32,10 +33,12 @@ public class ViewJeu {
         mario.setScaleX(0.3);
         mario.setScaleY(0.3);
     }
+
     void setVueJeu(){
-        root2.getChildren().addAll(fond2);
-        root2.getChildren().add(mario);
-        root2.getChildren().add(Retour);
+        root.getChildren().clear();
+        root.getChildren().addAll(fond2);
+        root.getChildren().add(mario);
+        root.getChildren().add(Retour);
     }
 
     /*
@@ -46,7 +49,6 @@ public class ViewJeu {
         Retour.setFont(policeTitreR);
         Retour.setFill(Color.WHITE);
         Retour.setOnMouseClicked(event -> primaryStage.setScene(scene));
-
 
         */
 

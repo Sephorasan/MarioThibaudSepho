@@ -9,9 +9,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.File;
-
 
 public class ViewHandler extends Application {
     private Stage primaryStage;
@@ -64,7 +62,5 @@ public class ViewHandler extends Application {
         return vm;
     }
     public ViewOptions getVo() { return vo; }
-
-
 
 }
