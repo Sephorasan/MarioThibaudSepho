@@ -30,6 +30,7 @@ public class ViewOptions {
         mario2.setY(500);
         mario2.setScaleX(0.6);
         mario2.setScaleY(0.6);
+
     }
     private void initTexte(){
         /*
