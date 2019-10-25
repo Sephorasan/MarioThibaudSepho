@@ -8,9 +8,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 
 public class ViewMenu{
+    private Stage primaryStage;
     private Group root;
     private ImageView fond1;
     private Text Title, Jouer, Options, Quitter;
@@ -32,13 +34,16 @@ public class ViewMenu{
             Title.setFill(Color.RED);
             Jouer.setFont(policeTitre);
             Jouer.setFill(Color.RED);
+            Jouer.setX();
+            Jouer.setY();
             Options.setFont(policeTitre);
             Options.setFill(Color.RED);
             Quitter.setFont(policeTitre);
             Quitter.setFill(Color.RED);
+            Quitter.setOnMouseClicked(event -> primaryStage.close());
         /*
         Options.setOnMouseClicked(event -> primaryStage.setScene(scene3));
-        Quitter.setOnMouseClicked(event -> primaryStage.close());
+
 */
     }
         private void initBackground(){
