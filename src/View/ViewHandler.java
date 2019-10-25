@@ -27,10 +27,7 @@ public class ViewHandler extends Application {
     private ImageView fond1;
     private ImageView fond2;
     private ImageView fond3;
-    private Button btn1;
-    private Button btn2;
-    private Button btn3;
-    private Button btn4;
+
 
     @Override
     public void start(Stage primaryStage){
@@ -47,16 +44,13 @@ public class ViewHandler extends Application {
         Text texte = new Text();
         Text texteM = new Text();
         Text texteY = new Text();
+        Text Jouer = new Text();
+        Text Options = new Text();
+        Text Quitter = new Text();
 
         final File file = new File("src/Asset/Son/mario-theme.mp3");
         final Media media = new Media(file.toURI().toString());
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
-
-        btn1 = initButton(700,400,"Jouer");
-        btn2 = initButton(700,450,"Options");
-        btn3 = initButton(700,500,"Quitter");
-        btn4 = initButton(700,500,"Retour");
-
 
         texte.setText("MARIO DEMINEUR");
         texte.setX(350);
@@ -79,10 +73,29 @@ public class ViewHandler extends Application {
         texteY.setFont(policeTitreY);
         texteY.setFill(Color.GREEN);
 
-        btn1.setOnAction(event -> primaryStage.setScene(scene2));
-        btn2.setOnAction(event -> primaryStage.setScene(scene3));
-        btn3.setOnAction(event -> primaryStage.close());
-        btn4.setOnAction(event -> primaryStage.setScene(scene));
+        Jouer.setText("Jouer");
+        Jouer.setX(700);
+        Jouer.setY(450);
+        Font policeTitreJ = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
+        Jouer.setFont(policeTitreJ);
+        Jouer.setFill(Color.WHITE);
+        Jouer.setOnMouseClicked(event -> primaryStage.setScene(scene2));
+
+        Options.setText("Options");
+        Options.setX(700);
+        Options.setY(500);
+        Font policeTitreO = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
+        Options.setFont(policeTitreO);
+        Options.setFill(Color.WHITE);
+        Options.setOnMouseClicked(event -> primaryStage.setScene(scene3));
+
+        Quitter.setText("Quitter");
+        Quitter.setX(700);
+        Quitter.setY(550);
+        Font policeTitreQ = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
+        Quitter.setFont(policeTitreQ);
+        Quitter.setFill(Color.WHITE);
+        Quitter.setOnMouseClicked(event -> primaryStage.close());
 
         initBackground();
         initBackground2();
@@ -93,12 +106,11 @@ public class ViewHandler extends Application {
         initPerso3();
 
         root.getChildren().addAll(fond1);
-        root.getChildren().add(btn1);
-        root.getChildren().add(btn2);
-        root.getChildren().add(btn3);
         root.getChildren().add(texte);
+        root.getChildren().add(Jouer);
+        root.getChildren().add(Options);
+        root.getChildren().add(Quitter);
         root2.getChildren().addAll(fond2);
-        root2.getChildren().add(btn4);
         root2.getChildren().add(mario);
         //root3.getChildren().addAll(fond3);
         root3.getChildren().add(yoshi);
@@ -108,6 +120,7 @@ public class ViewHandler extends Application {
 
         primaryStage.setFullScreen(true);
         primaryStage.setScene(scene);
+        primaryStage.setScene(scene2);
         primaryStage.setTitle("Mario");
         //primaryStage.setFullScreenExitHint("");
         //primaryStage.setResizable(false);
@@ -129,14 +142,6 @@ public class ViewHandler extends Application {
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds();
         fond2.setFitHeight((int) primaryScreenBounds.getHeight());
         fond2.setFitWidth((int) primaryScreenBounds.getWidth());
-    }
-
-    private Button initButton(int longueur, int largeur, String texteDuBouton) {
-        Button bouton = new Button();
-        bouton.setLayoutX(longueur);
-        bouton.setLayoutY(largeur);
-        bouton.setText(texteDuBouton);
-        return bouton;
     }
 
     private void initPerso1() {
@@ -171,4 +176,5 @@ public class ViewHandler extends Application {
         fond3.setFitHeight((int) primaryScreenBounds.getHeight());
         fond3.setFitWidth((int) primaryScreenBounds.getWidth());
     }
+
 }
