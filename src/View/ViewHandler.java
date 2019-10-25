@@ -120,7 +120,6 @@ public class ViewHandler extends Application {
 
         primaryStage.setFullScreen(true);
         primaryStage.setScene(scene);
-        primaryStage.setScene(scene2);
         primaryStage.setTitle("Mario");
         //primaryStage.setFullScreenExitHint("");
         //primaryStage.setResizable(false);
