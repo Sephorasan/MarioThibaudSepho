@@ -170,11 +170,12 @@ public class ViewHandler extends Application {
         mario.setOnMousePressed(event -> mario.setLayoutY(-30));
         mario.setOnMouseReleased(event -> mario.setLayoutY(0));
     }
+    /*
     private void initBackground3(){
         fond3 = new ImageView("Asset/Image/fond1.png");
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds();
         fond3.setFitHeight((int) primaryScreenBounds.getHeight());
         fond3.setFitWidth((int) primaryScreenBounds.getWidth());
-    }
+    }*/
 
 }
