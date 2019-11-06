@@ -1,7 +1,12 @@
 package View;
 
+import Controller.ControllerMenu;
+import Tool.Path;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class ViewOptions {
@@ -9,10 +14,11 @@ public class ViewOptions {
     private Text texteM, texteY, RetourOptions;
     private ImageView yoshi;
     private ImageView mario2;
+    private Button options;
 
     ViewOptions(Group root) {
         this.root = root;
-        //initText();
+        initTexte();
         initPerso2();
         initPerso3();
     }
@@ -33,32 +39,27 @@ public class ViewOptions {
 
     }
     private void initTexte(){
-        /*
-        texteM.setText("MARIO");
+        texteM = new Text("MARIO");
+        texteY = new Text("YOSHI");
+        RetourOptions = new Text("Retour");
+        Font police = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase),40);
+        texteM.setFont(police);
+        texteM.setFill(Color.RED);
         texteM.setX(750);
         texteM.setY(750);
-        Font policeTitreM = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
-        texteM.setFont(policeTitreM);
-        texteM.setFill(Color.RED);
-
-        texteY.setText("YOSHI");
         texteY.setX(350);
         texteY.setY(750);
-        Font policeTitreY = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
-        texteY.setFont(policeTitreY);
+        texteY.setFont(police);
         texteY.setFill(Color.GREEN);
-
-        RetourOptions.setText("Retour");
         RetourOptions.setX(1000);
         RetourOptions.setY(200);
-        Font policeTitreRO = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 30);
-        RetourOptions.setFont(policeTitreRO);
+        RetourOptions.setFont(police);
         RetourOptions.setFill(Color.WHITE);
-        RetourOptions.setOnMouseClicked(event -> primaryStage.setScene(scene));
+        //RetourOptions.setOnMouseClicked(event -> primaryStage.setScene(scene));
+    }
 
-    }
-}*/
-    }
+    public void setEvents(ControllerMenu cm){ RetourOptions.setOnMouseClicked(cm);}
+
     void setVueOptions() {
         root.getChildren().clear();
         root.getChildren().add(yoshi);
@@ -66,6 +67,11 @@ public class ViewOptions {
         root.getChildren().add(texteM);
         root.getChildren().add(texteY);
         root.getChildren().add(RetourOptions);
+    }
+
+
+    public Text getRetour(){
+        return RetourOptions;
     }
 }
 

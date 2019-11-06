@@ -27,8 +27,10 @@ public class ViewHandler extends Application {
         Group root = new Group();
         Scene scene = new Scene(root);
 
+        vj = new ViewJeu(root);
         vm = new ViewMenu(root);
         vo = new ViewOptions(root);
+
 
         ControllerMenu = new ControllerMenu(this);
         ControllerJeu = new ControllerJeu(this);
@@ -38,30 +40,53 @@ public class ViewHandler extends Application {
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
 
         afficherMenuPrincipal();
-        primaryStage.setFullScreen(true);
-        primaryStage.setScene(scene);
         primaryStage.setTitle("Mario");
         primaryStage.setFullScreenExitHint("");
+        primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.show();
+        primaryStage.setFullScreen(true);
         mediaPlayer.play();
+        primaryStage.show();
     }
-        public void afficherMenuPrincipal(){
-            vm.setVueMenu();
-        }
 
-    public void afficherViewOptions() { vo.setVueOptions(); }
-    public void afficherViewJeu(){
+    public void afficherMenuPrincipal() {
+        vm.setVueMenu();
+    }
+
+    public void afficherViewOptions() {
+        vo.setVueOptions();
+    }
+
+    public void afficherViewJeu() {
         vj.setVueJeu();
     }
 
     public Stage getPrimaryStage() {
         return primaryStage;
     }
+
+    public ViewOptions getVo() {
+        return vo;
+    }
+
+    public ViewJeu getVj(){
+        return vj;
+    }
     public ViewMenu getVm() {
         return vm;
     }
-    public ViewOptions getVo() { return vo; }
+
+    public void setVueJeu(){
+        vj.setVueJeu();
+    }
+
+    public void setVueOptions(){
+        vo.setVueOptions();
+    }
+    public void setEventHandlerMenu(ControllerMenu controllerMenu) {
+        vm.setEvents(controllerMenu);
+    }
+
 
 }

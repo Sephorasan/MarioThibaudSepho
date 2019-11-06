@@ -1,8 +1,10 @@
 package View;
 
+import Controller.ControllerMenu;
 import Tool.Path;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -11,11 +13,12 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
-public class ViewMenu{
+public class ViewMenu {
     private Stage primaryStage;
     private Group root;
     private ImageView fond1;
     private Text Title, Jouer, Options, Quitter;
+    private Button lancerJeu, quitter, retour;
 
     ViewMenu(Group root) {
         this.root = root;
@@ -25,11 +28,11 @@ public class ViewMenu{
     }
 
     private void initTexte(){
-            Title = new Text("Mario Démineur");
+            Title = new Text("Mario Demineur");
             Jouer = new Text("Jouer");
             Options  = new Text("Options");
             Quitter = new Text("Quitter");
-            Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase),90);
+            Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase),60);
             Title.setFont(policeTitre);
             Title.setFill(Color.RED);
             Title.setX(550);
@@ -46,12 +49,6 @@ public class ViewMenu{
             Quitter.setFill(Color.WHITE);
             Quitter.setX(700);
             Quitter.setY(750);
-
-            Quitter.setOnMouseClicked(event -> primaryStage.close());
-        /*
-        Options.setOnMouseClicked(event -> primaryStage.setScene(scene3));
-
-*/
     }
         private void initBackground(){
         fond1 = new ImageView("Asset/Image/fond3.jpg");
@@ -67,5 +64,20 @@ public class ViewMenu{
         root.getChildren().add(Options);
         root.getChildren().add(Quitter);
     }
+    public Text getLancerJeu(){
+        return Jouer;
+    }
+    public Text getOptions(){
+        return Options;
+    }
+    public Text getQuitter(){
+        return Quitter;
+    }
 
+    void setEvents(ControllerMenu cm) {
+        Jouer.setOnMouseClicked(cm);
+        Options.setOnMouseClicked(cm);
+        Quitter.setOnMouseClicked(cm);
+
+    }
 }
