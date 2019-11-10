@@ -18,7 +18,6 @@ public class ViewMenu {
     private Group root;
     private ImageView fond1;
     private Text Title, Jouer, Options, Quitter;
-    private Button lancerJeu, quitter, retour;
 
     ViewMenu(Group root) {
         this.root = root;

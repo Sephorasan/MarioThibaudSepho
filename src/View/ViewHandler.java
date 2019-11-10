@@ -18,7 +18,9 @@ public class ViewHandler extends Application {
     private ViewJeu vj;
     private ViewOptions vo;
     private ViewMenu vm;
-    private ViewPersoY vy;
+    private ViewPersoY vpy;
+    private ViewPersoM vpm;
+    private ViewPersoK vpk;
     private ControllerOptions ControllerOptions;
     private ControllerMenu ControllerMenu;
     private ControllerJeu ControllerJeu;
@@ -33,7 +35,9 @@ public class ViewHandler extends Application {
         vj = new ViewJeu(root);
         vm = new ViewMenu(root);
         vo = new ViewOptions(root);
-        vy = new ViewPersoY(root);
+        vpm = new ViewPersoM(root);
+        vpy = new ViewPersoY(root);
+        vpk = new ViewPersoK(root);
 
 
         ControllerMenu = new ControllerMenu(this);
@@ -54,50 +58,42 @@ public class ViewHandler extends Application {
         mediaPlayer.play();
         primaryStage.show();
     }
-
+    ////////////////////////////////////////////////////////
     public void afficherMenuPrincipal() {
         vm.setVueMenu();
     }
-
-    public void afficherViewOptions() {
-        vo.setVueOptions();
-    }
-
-    public void afficherViewJeu() {
-        vj.setVueJeu();
-    }
-
+    ////////////////////////////////////////////////////////
     public Stage getPrimaryStage() {
         return primaryStage;
     }
-
     public ViewOptions getVo() {
         return vo;
     }
-
     public ViewJeu getVj(){
         return vj;
     }
     public ViewMenu getVm() {
         return vm;
     }
-
-    public ViewPersoY getVy(){
-        return vy;
+    public ViewPersoY getVpy(){
+        return vpy;
     }
-
+    ////////////////////////////////////////////////////////
     public void setVueJeu(){
         vj.setVueJeu();
     }
     public void setVuePersoY(){
-        vy.setVuePersoY();
+        vpy.setVuePersoY();
     }
+    public void setVuePersoM(){vpm.setVuePersoM();}
+    public void setVuePersoK(){vpk.setVuePersoK();}
     public void setVueOptions(){
         vo.setVueOptions();
     }
     public void setVueMenu(){
         vm.setVueMenu();
     }
+    ////////////////////////////////////////////////////////
     public void setEventHandlerMenu(ControllerMenu controllerMenu) {
         vm.setEvents(controllerMenu);
         vo.setEvents(controllerMenu);

@@ -5,15 +5,15 @@ import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import javafx.stage.Screen;
 
-public class ViewPersoY {
+public class ViewPersoK {
     private Group root;
-    private ImageView yoshi;
+    private ImageView kirby;
     private ImageView fond;
 
-    ViewPersoY(Group root) {
+    ViewPersoK(Group root) {
         this.root = root;
         initBackground();
-        initPersoY();
+        initPersoK();
     }
 
     private void initBackground(){
@@ -23,19 +23,21 @@ public class ViewPersoY {
         fond.setFitWidth((int) primaryScreenBounds.getWidth());
     }
 
-    private void initPersoY() {
-        yoshi = new ImageView("Asset/Image/yoshi.gif");
-        yoshi.setX(180);
-        yoshi.setY(530);
-        yoshi.setScaleX(0.3);
-        yoshi.setScaleY(0.3);
+    private void initPersoK() {
+        kirby = new ImageView("Asset/Image/kirby.gif");
+        kirby.setX(180);
+        kirby.setY(530);
+        kirby.setScaleX(0.3);
+        kirby.setScaleY(0.3);
     }
 
-    void setVuePersoY(){
+    void setVuePersoK(){
         root.getChildren().clear();
         root.getChildren().addAll(fond);
-        root.getChildren().add(yoshi);
+        root.getChildren().add(kirby);
     }
 
 }
+
+
 

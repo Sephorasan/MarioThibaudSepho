@@ -5,15 +5,15 @@ import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import javafx.stage.Screen;
 
-public class ViewPersoY {
+public class ViewPersoM {
     private Group root;
-    private ImageView yoshi;
+    private ImageView mario2;
     private ImageView fond;
 
-    ViewPersoY(Group root) {
+    ViewPersoM(Group root) {
         this.root = root;
         initBackground();
-        initPersoY();
+        initPersoM();
     }
 
     private void initBackground(){
@@ -23,18 +23,18 @@ public class ViewPersoY {
         fond.setFitWidth((int) primaryScreenBounds.getWidth());
     }
 
-    private void initPersoY() {
-        yoshi = new ImageView("Asset/Image/yoshi.gif");
-        yoshi.setX(180);
-        yoshi.setY(530);
-        yoshi.setScaleX(0.3);
-        yoshi.setScaleY(0.3);
+    private void initPersoM() {
+        mario2 = new ImageView("Asset/Image/mario.gif");
+        mario2.setX(180);
+        mario2.setY(530);
+        mario2.setScaleX(0.3);
+        mario2.setScaleY(0.3);
     }
 
-    void setVuePersoY(){
+    void setVuePersoM(){
         root.getChildren().clear();
         root.getChildren().addAll(fond);
-        root.getChildren().add(yoshi);
+        root.getChildren().add(mario2);
     }
 
 }

@@ -17,9 +17,15 @@ public class ControllerOptions implements EventHandler<MouseEvent> {
         if (event.getSource().equals(launcher.getVo().getPersoY())
                 && event.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
             launcher.setVuePersoY();
+        } else if (event.getSource().equals(launcher.getVo().getPersoM())
+                && event.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
+            launcher.setVuePersoM();
+        } else if (event.getSource().equals(launcher.getVo().getPersoK())
+                && event.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
+            launcher.setVuePersoK();
         } else if (event.getSource().equals(launcher.getVo().getRetour())
                 && event.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
             launcher.setVueOptions();
-    }
+        }
     }
 }
