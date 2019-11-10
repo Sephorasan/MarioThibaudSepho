@@ -2,6 +2,7 @@ package View;
 
 import Controller.ControllerJeu;
 import Controller.ControllerMenu;
+import Controller.ControllerOptions;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -17,6 +18,8 @@ public class ViewHandler extends Application {
     private ViewJeu vj;
     private ViewOptions vo;
     private ViewMenu vm;
+    private ViewPersoY vy;
+    private ControllerOptions ControllerOptions;
     private ControllerMenu ControllerMenu;
     private ControllerJeu ControllerJeu;
 
@@ -30,10 +33,12 @@ public class ViewHandler extends Application {
         vj = new ViewJeu(root);
         vm = new ViewMenu(root);
         vo = new ViewOptions(root);
+        vy = new ViewPersoY(root);
 
 
         ControllerMenu = new ControllerMenu(this);
         ControllerJeu = new ControllerJeu(this);
+        ControllerOptions = new ControllerOptions(this);
 
         final File file = new File("src/Asset/Son/mario-theme.mp3");
         final Media media = new Media(file.toURI().toString());
@@ -77,15 +82,29 @@ public class ViewHandler extends Application {
         return vm;
     }
 
+    public ViewPersoY getVy(){
+        return vy;
+    }
+
     public void setVueJeu(){
         vj.setVueJeu();
     }
-
+    public void setVuePersoY(){
+        vy.setVuePersoY();
+    }
     public void setVueOptions(){
         vo.setVueOptions();
     }
+    public void setVueMenu(){
+        vm.setVueMenu();
+    }
     public void setEventHandlerMenu(ControllerMenu controllerMenu) {
         vm.setEvents(controllerMenu);
+        vo.setEvents(controllerMenu);
+    }
+
+    public void setEventHandlerOptions(ControllerOptions controllerOptions){
+        vo.setEvents(controllerOptions);
     }
 
 

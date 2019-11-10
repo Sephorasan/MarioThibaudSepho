@@ -1,6 +1,7 @@
 package View;
 
 import Controller.ControllerMenu;
+import Controller.ControllerOptions;
 import Tool.Path;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -54,11 +55,8 @@ public class ViewOptions {
         RetourOptions.setX(1000);
         RetourOptions.setY(200);
         RetourOptions.setFont(police);
-        RetourOptions.setFill(Color.WHITE);
-        //RetourOptions.setOnMouseClicked(event -> primaryStage.setScene(scene));
+        RetourOptions.setFill(Color.BLACK);
     }
-
-    public void setEvents(ControllerMenu cm){ RetourOptions.setOnMouseClicked(cm);}
 
     void setVueOptions() {
         root.getChildren().clear();
@@ -69,9 +67,17 @@ public class ViewOptions {
         root.getChildren().add(RetourOptions);
     }
 
-
     public Text getRetour(){
         return RetourOptions;
+    }
+
+    public Text getPersoY(){ return texteY;}
+
+    void setEvents(ControllerMenu cm){
+        RetourOptions.setOnMouseClicked(cm);
+    }
+    void setEvents(ControllerOptions co){
+        texteY.setOnMouseClicked(co);
     }
 }
 
