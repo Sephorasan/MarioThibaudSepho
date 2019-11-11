@@ -3,10 +3,14 @@ package View;
 import Controller.ControllerMenu;
 import Controller.ControllerOptions;
 import Tool.Path;
+import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -19,6 +23,10 @@ public class ViewOptions {
     private ImageView fond;
     private ImageView mario2;
     private ImageView kirby;
+    private Slider volumeSlider;
+    private Text volumeLabel;
+    private MediaPlayer mp;
+
 
     ViewOptions(Group root) {
         this.root = root;
@@ -27,6 +35,8 @@ public class ViewOptions {
         initPerso3();
         initPerso4();
         initBackground();
+        updateValues();
+        Volume();
     }
 
     private void initPerso2(){
@@ -53,6 +63,7 @@ public class ViewOptions {
 
     }
     private void initTexte(){
+        volumeLabel = new Text("Vol: ");
         texteM = new Text("MARIO");
         texteY = new Text("YOSHI");
         texteK = new Text("KIRBY");
@@ -74,6 +85,9 @@ public class ViewOptions {
         RetourOptions.setY(200);
         RetourOptions.setFont(police);
         RetourOptions.setFill(Color.BLACK);
+        volumeLabel.setFont(police);
+        volumeLabel.setX(420);
+        volumeLabel.setY(320);
     }
 
     private void initBackground(){
@@ -81,6 +95,21 @@ public class ViewOptions {
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds();
         fond.setFitHeight((int) primaryScreenBounds.getHeight());
         fond.setFitWidth((int) primaryScreenBounds.getWidth());
+    }
+    private void Volume(){
+        volumeSlider = new Slider();
+        volumeSlider.setLayoutX(450);
+        volumeSlider.setLayoutY(350);
+        volumeSlider.setPrefWidth(70);
+        volumeSlider.setMaxWidth(250);
+        volumeSlider.setMinWidth(150);
+        volumeSlider.valueProperty().addListener(new InvalidationListener() {
+            public void invalidated(Observable ov) {
+                if (volumeSlider.isValueChanging()) {
+                    mp.setVolume(volumeSlider.getValue() / 100.0);
+                }
+            }
+        });
     }
 
     void setVueOptions() {
@@ -93,6 +122,8 @@ public class ViewOptions {
         root.getChildren().add(kirby);
         root.getChildren().add(texteK);
         root.getChildren().add(RetourOptions);
+        root.getChildren().add(volumeLabel);
+        root.getChildren().add(volumeSlider);
     }
 
     public Text getRetour(){
@@ -112,6 +143,19 @@ public class ViewOptions {
         texteY.setOnMouseClicked(co);
         texteM.setOnMouseClicked(co);
         texteK.setOnMouseClicked(co);
+    }
+
+    protected void updateValues() {
+        if (volumeSlider != null) {
+            Platform.runLater(new Runnable() {
+                public void run(){
+                    if (!volumeSlider.isValueChanging()) {
+                        volumeSlider.setValue((int) Math.round(mp.getVolume()
+                                * 100));
+                    }
+                }
+            });
+        }
     }
 }
 
