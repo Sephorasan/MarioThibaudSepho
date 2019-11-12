@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ControllerClavierJeu;
 import Controller.ControllerJeu;
 import Controller.ControllerMenu;
 import Controller.ControllerOptions;
@@ -21,9 +22,11 @@ public class ViewHandler extends Application {
     private ViewPersoY vpy;
     private ViewPersoM vpm;
     private ViewPersoK vpk;
+    private ViewJeu viewJeu;
     private ControllerOptions ControllerOptions;
     private ControllerMenu ControllerMenu;
     private ControllerJeu ControllerJeu;
+    private ControllerClavierJeu controllerClavierJeu;
 
     @Override
     public void start(Stage primaryStage) {
@@ -43,6 +46,10 @@ public class ViewHandler extends Application {
         ControllerMenu = new ControllerMenu(this);
         ControllerJeu = new ControllerJeu(this);
         ControllerOptions = new ControllerOptions(this);
+
+        ControllerClavierJeu controllerClavierJeu = new ControllerClavierJeu(this, viewJeu);
+        scene.setOnKeyPressed(controllerClavierJeu);
+        scene.setOnKeyReleased(controllerClavierJeu);
 
         final File file = new File("src/Asset/Son/mario-theme.mp3");
         final Media media = new Media(file.toURI().toString());
@@ -102,6 +109,4 @@ public class ViewHandler extends Application {
     public void setEventHandlerOptions(ControllerOptions controllerOptions){
         vo.setEvents(controllerOptions);
     }
-
-
 }

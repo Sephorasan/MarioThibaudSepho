@@ -1,9 +1,12 @@
 package View;
 
+import Controller.ControllerClavierJeu;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import javafx.stage.Screen;
+
+import static java.awt.image.ImageObserver.WIDTH;
 
 
 public class ViewJeu {
@@ -36,6 +39,16 @@ public class ViewJeu {
         root.getChildren().clear();
         root.getChildren().addAll(fond);
         root.getChildren().add(mario);
+    }
+    public void moveLeft() {
+        if (mario.getX() > -20) {
+            mario.setX(mario.getX() - 3);
+        }
+    }
+    public void moveRight() {
+        if (mario.getX() < WIDTH - 23) {
+            mario.setX(mario.getX() + 3);
+        }
     }
 
 }
