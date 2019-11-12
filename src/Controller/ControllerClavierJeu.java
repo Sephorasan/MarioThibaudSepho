@@ -1,5 +1,6 @@
 package Controller;
 
+import Animation.JeuTimeLine;
 import View.ViewHandler;
 import View.ViewJeu;
 import javafx.beans.property.BooleanProperty;
@@ -21,6 +22,8 @@ public class ControllerClavierJeu implements EventHandler<KeyEvent> {
         spaceBarKeyTyped = new SimpleBooleanProperty(false);
         this.viewHandler = viewHandler;
         this.viewJeu = viewJeu;
+        JeuTimeLine jeuTimeLine = new JeuTimeLine(this);
+        //JeuTimeLine.start();
     }
 
     @Override
