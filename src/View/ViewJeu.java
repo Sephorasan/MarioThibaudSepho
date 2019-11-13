@@ -47,7 +47,7 @@ public class ViewJeu {
     }
     public void moveRight() {
       //  if (mario.getX() < WIDTH - 23) {
-            mario.setX(mario.getX() + 3);
+            mario.setX(mario.getX() + 8);
 
         //}
     }
