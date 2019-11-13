@@ -42,19 +42,16 @@ public class ViewJeu {
     }
     public void moveLeft() {
         if (mario.getX() > -20) {
-            mario.setX(mario.getX() - 3);
+            mario.setX(mario.getX() - 8);
         }
     }
     public void moveRight() {
-      //  if (mario.getX() < WIDTH - 23) {
             mario.setX(mario.getX() + 8);
-
-        //}
     }
     public void jump(){
-        if (mario.getY() > -20){
-            mario.setY(mario.getY() -50);
-        }
+    if (mario.getY() > -20){
+        mario.setY(mario.getY() -50);
+    }
     }
 
 }

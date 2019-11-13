@@ -27,7 +27,7 @@ public class ViewMenu {
     }
 
     private void initTexte(){
-            Title = new Text("Mario Demineur");
+            Title = new Text("Mario l'explorateur");
             Jouer = new Text("Jouer");
             Options  = new Text("Options");
             Quitter = new Text("Quitter");
