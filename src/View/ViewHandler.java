@@ -22,7 +22,6 @@ public class ViewHandler extends Application {
     private ViewPersoY vpy;
     private ViewPersoM vpm;
     private ViewPersoK vpk;
-    private ViewJeu viewJeu;
     private ControllerOptions ControllerOptions;
     private ControllerMenu ControllerMenu;
     private ControllerJeu ControllerJeu;
@@ -47,7 +46,7 @@ public class ViewHandler extends Application {
         ControllerJeu = new ControllerJeu(this);
         ControllerOptions = new ControllerOptions(this);
 
-        ControllerClavierJeu controllerClavierJeu = new ControllerClavierJeu(this, viewJeu);
+        ControllerClavierJeu controllerClavierJeu = new ControllerClavierJeu(this, vj);
         scene.setOnKeyPressed(controllerClavierJeu);
         scene.setOnKeyReleased(controllerClavierJeu);
 

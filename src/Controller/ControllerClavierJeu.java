@@ -13,12 +13,10 @@ public class ControllerClavierJeu implements EventHandler<KeyEvent> {
     private ViewHandler viewHandler;
     private ViewJeu viewJeu;
 
-    private BooleanProperty leftKeyTyped, rightKeyTyped, spaceBarKeyTyped;
 
-    public ControllerClavierJeu(ViewHandler viewHandler, ViewJeu controllerJeu) {
-        leftKeyTyped = new SimpleBooleanProperty(false);
-        rightKeyTyped = new SimpleBooleanProperty(false);
-        spaceBarKeyTyped = new SimpleBooleanProperty(false);
+
+    public ControllerClavierJeu(ViewHandler viewHandler, ViewJeu viewJeu) {
+
         this.viewHandler = viewHandler;
         this.viewJeu = viewJeu;
     }
@@ -28,41 +26,18 @@ public class ControllerClavierJeu implements EventHandler<KeyEvent> {
 
         if (event.getEventType() == KeyEvent.KEY_PRESSED) {
             if (event.getCode() == KeyCode.LEFT) {
-                leftKeyTyped.set(true);
+
+                viewJeu.moveLeft();
             } else if (event.getCode() == KeyCode.RIGHT) {
-                rightKeyTyped.set(true);
+
+                viewJeu.moveRight();
+
             } else if (event.getCode() == KeyCode.SPACE) {
-                spaceBarKeyTyped.set(true);
-            }
-        } else if (event.getEventType() == KeyEvent.KEY_RELEASED) {
-            if (event.getCode() == KeyCode.LEFT) {
-                leftKeyTyped.set(false);
-            } else if (event.getCode() == KeyCode.RIGHT) {
-                rightKeyTyped.set(false);
-            } else if (event.getCode() == KeyCode.SPACE) {
-                spaceBarKeyTyped.set(false);
+
             }
         }
     }
 
-    public synchronized void moveLeft() {
-        viewJeu.moveLeft();
-    }
 
-    public synchronized void moveRight() {
-        viewJeu.moveRight();
-    }
-
-    public synchronized boolean isLeftKeyTyped() {
-        return leftKeyTyped.get();
-    }
-
-    public synchronized boolean isRightKeyTyped() {
-        return rightKeyTyped.get();
-    }
-
-    public synchronized boolean isSpaceBarKeyTyped() {
-        return spaceBarKeyTyped.get();
-    }
 
 }
