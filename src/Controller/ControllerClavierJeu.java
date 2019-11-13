@@ -2,8 +2,6 @@ package Controller;
 
 import View.ViewHandler;
 import View.ViewJeu;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -34,6 +32,7 @@ public class ControllerClavierJeu implements EventHandler<KeyEvent> {
 
             } else if (event.getCode() == KeyCode.SPACE) {
 
+                viewJeu.jump();
             }
         }
     }

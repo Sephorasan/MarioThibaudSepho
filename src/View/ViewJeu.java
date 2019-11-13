@@ -21,7 +21,7 @@ public class ViewJeu {
     }
 
     private void initBackground(){
-        fond = new ImageView("Asset/Image/herbe.jpg");
+        fond = new ImageView("Asset/Image/fond.png");
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds();
         fond.setFitHeight((int) primaryScreenBounds.getHeight());
         fond.setFitWidth((int) primaryScreenBounds.getWidth());
@@ -30,7 +30,7 @@ public class ViewJeu {
     private void initPerso() {
         mario = new ImageView("Asset/Image/mario.gif");
         mario.setX(180);
-        mario.setY(630);
+        mario.setY(530);
         mario.setScaleX(0.3);
         mario.setScaleY(0.3);
     }
@@ -50,6 +50,11 @@ public class ViewJeu {
             mario.setX(mario.getX() + 3);
 
         //}
+    }
+    public void jump(){
+        if (mario.getY() > -20){
+            mario.setY(mario.getY() -50);
+        }
     }
 
 }
