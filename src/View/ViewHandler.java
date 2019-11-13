@@ -8,14 +8,8 @@ import Music.Music;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import java.io.File;
 
 public class ViewHandler extends Application {
     private Stage primaryStage;
@@ -92,8 +86,10 @@ public class ViewHandler extends Application {
     public void setVuePersoY(){
         vpy.setVuePersoY();
     }
-    public void setVuePersoM(){vpm.setVuePersoM();}
-    public void setVuePersoK(){vpk.setVuePersoK();}
+    public void setVuePersoM(){
+        vpm.setVuePersoM();}
+    public void setVuePersoK(){
+        vpk.setVuePersoK();}
     public void setVueOptions(){
         vo.setVueOptions();
     }
@@ -105,8 +101,10 @@ public class ViewHandler extends Application {
         vm.setEvents(controllerMenu);
         vo.setEvents(controllerMenu);
     }
-
     public void setEventHandlerOptions(ControllerOptions controllerOptions){
         vo.setEvents(controllerOptions);
+    }
+    public void setEventHandlerJeu(ControllerJeu controllerJeu){
+        vj.setEvents(controllerJeu);
     }
 }

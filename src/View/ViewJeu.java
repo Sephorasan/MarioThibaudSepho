@@ -1,17 +1,17 @@
 package View;
 
-import Controller.ControllerClavierJeu;
-import javafx.animation.FadeTransition;
-import javafx.animation.PathTransition;
+import Controller.ControllerJeu;
+import Controller.ControllerMenu;
+import Tool.Path;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.CubicCurveTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.util.Duration;
 
@@ -21,9 +21,8 @@ public class ViewJeu {
     private ImageView mario;
     private ImageView fond;
     private ImageView obstacle;
-    private ImageView ennemi;
-    private ImageView ennemi2;
-    private ImageView ennemi3;
+    private ImageView champi;
+    private Text retour;
 
 
     ViewJeu(Group root) {
@@ -31,13 +30,11 @@ public class ViewJeu {
         initBackground();
         initPerso();
         initObstacle();
-        initEnnemi();
-        initEnnemi2();
-        initEnnemi3();
-
+        initChampi();
+        initTexte();
     }
 
-    private void initBackground(){
+    private void initBackground() {
         fond = new ImageView("Asset/Image/fond.png");
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds();
         fond.setFitHeight((int) primaryScreenBounds.getHeight());
@@ -47,17 +44,16 @@ public class ViewJeu {
     private void initPerso() {
         mario = new ImageView("Asset/Image/mario.gif");
         mario.setX(180);
-        mario.setY(550);
+        mario.setY(540);
         mario.setScaleX(0.3);
         mario.setScaleY(0.3);
     }
 
-    private void initEnnemi() {
+    /*
+    private void initEnnemi(){
         ennemi = new ImageView("Asset/Image/ennemi.gif");
-
-
-        ennemi.setX(1000);
-        ennemi.setY(1000);
+        ennemi.setX(250);
+        ennemi.setY(600);
         ennemi.setScaleX(0.2);
         ennemi.setScaleY(0.2);
         Path path = new Path();
@@ -68,7 +64,6 @@ public class ViewJeu {
         pathTransition.setDuration(Duration.millis(4000));
         pathTransition.setPath(path);
         pathTransition.setNode(ennemi);
-
         pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
         pathTransition.setCycleCount(Timeline.INDEFINITE);
         pathTransition.setAutoReverse(true);
@@ -82,69 +77,78 @@ public class ViewJeu {
         ennemi2.setScaleY(0.2);
         Path path2 = new Path();
         path2.getElements().add(new MoveTo(500,900));
-        path2.getElements().add(new CubicCurveTo(500, 0, 500, 0, 500, 900));
+        path2.getElements().add(new CubicCurveTo(300, 0, 300, 0, 500, 700));
         path2.getElements().add(new CubicCurveTo(500, 0, 500, 0, 500, 0));
         PathTransition pathTransition2 = new PathTransition();
-            pathTransition2.setDuration(Duration.millis(3000));
+        pathTransition2.setDuration(Duration.millis(3000));
         pathTransition2.setPath(path2);
         pathTransition2.setNode(ennemi2);
-
         pathTransition2.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
         pathTransition2.setCycleCount(Timeline.INDEFINITE);
         pathTransition2.setAutoReverse(true);
         pathTransition2.play();
-
+    }*/
+    private void initChampi() {
+        champi = new ImageView("Asset/Image/champignon.png");
+        champi.setX(0);
+        champi.setY(580);
+        champi.setScaleX(0.2);
+        champi.setScaleY(0.2);
+        final Timeline timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.setAutoReverse(true);
+        final KeyValue kv = new KeyValue(champi.xProperty(), 1100);
+        final KeyFrame kf = new KeyFrame(Duration.millis(5000), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.play();
     }
-    private void initEnnemi3(){
-        ennemi3 = new ImageView("Asset/Image/ennemi.gif");
-        ennemi3.setX(1000);
-        ennemi3.setY(1000);
-        ennemi3.setScaleX(0.2);
-        ennemi3.setScaleY(0.2);
-        Path path3 = new Path();
-        path3.getElements().add(new MoveTo(1000,900));
-        path3.getElements().add(new CubicCurveTo(1000, 0, 1000, 0, 1000, 900));
-        path3.getElements().add(new CubicCurveTo(1000, 0, 1000, 0, 1000, 0));
-        PathTransition pathTransition3 = new PathTransition();
-        pathTransition3.setDuration(Duration.millis(2500));
-        pathTransition3.setPath(path3);
-        pathTransition3.setNode(ennemi3);
 
-        pathTransition3.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
-        pathTransition3.setCycleCount(Timeline.INDEFINITE);
-        pathTransition3.setAutoReverse(true);
-        pathTransition3.play();
-
-    }
     private void initObstacle() {
         obstacle = new ImageView("Asset/Image/tuyau.png");
         obstacle.setX(500);
-        obstacle.setY(550);
+        obstacle.setY(400);
         obstacle.setScaleX(0.3);
         obstacle.setScaleY(0.3);
     }
 
-    void setVueJeu(){
+    private void initTexte() {
+        retour = new Text("Retour");
+        Font police = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 40);
+        retour.setX(1100);
+        retour.setY(200);
+        retour.setFont(police);
+        retour.setFill(Color.BLACK);
+    }
+
+    void setVueJeu() {
         root.getChildren().clear();
         root.getChildren().addAll(fond);
         root.getChildren().add(mario);
         root.getChildren().add(obstacle);
-        root.getChildren().add(ennemi);
-        root.getChildren().add(ennemi2);
-        root.getChildren().add(ennemi3);
-
-
+        root.getChildren().add(champi);
+        root.getChildren().add(retour);
     }
+
+    public Text getRetour() {
+        return retour;
+    }
+
     public void moveLeft() {
         if (mario.getX() > -20) {
-            mario.setX(mario.getX() - 8);
+            mario.setX(mario.getX() - 10);
         }
     }
+
     public void moveRight() {
-            mario.setX(mario.getX() + 8);
+        mario.setX(mario.getX() + 10);
     }
-    public void jump(){
+
+    public void jump() {
 
     }
 
+    void setEvents(ControllerJeu cj) {
+        retour.setOnMouseClicked(cj);
+
+    }
 }

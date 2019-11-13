@@ -4,7 +4,6 @@ import Controller.ControllerMenu;
 import Tool.Path;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -63,17 +62,17 @@ public class ViewMenu {
         root.getChildren().add(Options);
         root.getChildren().add(Quitter);
     }
-    public Text getLancerJeu(){
+        public Text getLancerJeu(){
         return Jouer;
     }
-    public Text getOptions(){
+        public Text getOptions(){
         return Options;
     }
-    public Text getQuitter(){
+        public Text getQuitter(){
         return Quitter;
     }
 
-    void setEvents(ControllerMenu cm) {
+        void setEvents(ControllerMenu cm) {
         Jouer.setOnMouseClicked(cm);
         Options.setOnMouseClicked(cm);
         Quitter.setOnMouseClicked(cm);

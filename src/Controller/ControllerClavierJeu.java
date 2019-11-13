@@ -11,8 +11,6 @@ public class ControllerClavierJeu implements EventHandler<KeyEvent> {
     private ViewHandler viewHandler;
     private ViewJeu viewJeu;
 
-
-
     public ControllerClavierJeu(ViewHandler viewHandler, ViewJeu viewJeu) {
 
         this.viewHandler = viewHandler;
@@ -36,7 +34,4 @@ public class ControllerClavierJeu implements EventHandler<KeyEvent> {
             }
         }
     }
-
-
-
 }

@@ -4,14 +4,10 @@ import Controller.ControllerMenu;
 import Controller.ControllerOptions;
 import Music.Music;
 import Tool.Path;
-import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -120,20 +116,20 @@ public class ViewOptions {
         root.getStylesheets().add(getClass().getResource("../Asset/Css/slider.css").toExternalForm());
     }
 
-    public Text getRetour(){
+        public Text getRetour(){
         return RetourOptions;
     }
 
-    public Text getPersoY(){ return texteY;}
+        public Text getPersoY(){ return texteY;}
 
-    public Text getPersoM(){ return texteM;}
+        public Text getPersoM(){ return texteM;}
 
-    public Text getPersoK(){ return texteK;}
+        public Text getPersoK(){ return texteK;}
 
-    void setEvents(ControllerMenu cm){
+        void setEvents(ControllerMenu cm){
         RetourOptions.setOnMouseClicked(cm);
     }
-    void setEvents(ControllerOptions co){
+        void setEvents(ControllerOptions co){
         texteY.setOnMouseClicked(co);
         texteM.setOnMouseClicked(co);
         texteK.setOnMouseClicked(co);
