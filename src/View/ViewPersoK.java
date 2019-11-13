@@ -1,11 +1,16 @@
 package View;
 
+import Controller.ControllerJeu;
+import Tool.Path;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.util.Duration;
 
@@ -14,12 +19,14 @@ public class ViewPersoK {
     private ImageView kirby;
     private ImageView fond;
     private ImageView etoile;
+    private Text retour;
 
     ViewPersoK(Group root) {
         this.root = root;
         initBackground();
         initPersoK();
         initEtoile();
+        initTexte();
     }
 
     private void initBackground(){
@@ -43,6 +50,14 @@ public class ViewPersoK {
         timeline.getKeyFrames().add(kf);
         timeline.play();
     }
+    private void initTexte() {
+        retour = new Text("Retour");
+        Font police = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 40);
+        retour.setX(1100);
+        retour.setY(200);
+        retour.setFont(police);
+        retour.setFill(Color.BLACK);
+    }
 
     private void initPersoK() {
         kirby = new ImageView("Asset/Image/kirby.gif");
@@ -57,6 +72,24 @@ public class ViewPersoK {
         root.getChildren().addAll(fond);
         root.getChildren().add(kirby);
         root.getChildren().add(etoile);
+        root.getChildren().add(retour);
+    }
+    public Text getRetour() {
+        return retour;
+    }
+
+    public void moveLeft() {
+        if (kirby.getX() > -20) {
+            kirby.setX(kirby.getX() - 10);
+        }
+    }
+
+    public void moveRight() {
+        kirby.setX(kirby.getX() + 10);
+    }
+    void setEvents(ControllerJeu cj) {
+        retour.setOnMouseClicked(cj);
+
     }
 
 }

@@ -1,11 +1,16 @@
 package View;
 
+import Controller.ControllerJeu;
+import Tool.Path;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.util.Duration;
 
@@ -14,12 +19,14 @@ public class ViewPersoM {
     private ImageView mario2;
     private ImageView fond;
     private ImageView champi;
+    private Text retour;
 
     ViewPersoM(Group root) {
         this.root = root;
         initBackground();
         initPersoM();
         initChampi();
+        initTexte();
     }
 
     private void initBackground(){
@@ -44,6 +51,14 @@ public class ViewPersoM {
         timeline.play();
     }
 
+    private void initTexte() {
+        retour = new Text("Retour");
+        Font police = Font.loadFont(getClass().getResourceAsStream(Path.fontHeadCase), 40);
+        retour.setX(1100);
+        retour.setY(200);
+        retour.setFont(police);
+        retour.setFill(Color.BLACK);
+    }
     private void initPersoM() {
         mario2 = new ImageView("Asset/Image/mario.gif");
         mario2.setX(180);
@@ -57,6 +72,24 @@ public class ViewPersoM {
         root.getChildren().addAll(fond);
         root.getChildren().add(mario2);
         root.getChildren().add(champi);
+        root.getChildren().add(retour);
+    }
+    public Text getRetour() {
+        return retour;
+    }
+
+    public void moveLeft() {
+        if (mario2.getX() > -20) {
+            mario2.setX(mario2.getX() - 10);
+        }
+    }
+
+    public void moveRight() {
+        mario2.setX(mario2.getX() + 10);
+    }
+    void setEvents(ControllerJeu cj) {
+        retour.setOnMouseClicked(cj);
+
     }
 
 }

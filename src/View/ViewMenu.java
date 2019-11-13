@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 
 
 public class ViewMenu {
-    private Stage primaryStage;
     private Group root;
     private ImageView fond1;
     private Text Title, Jouer, Options, Quitter;
@@ -26,7 +25,7 @@ public class ViewMenu {
     }
 
     private void initTexte(){
-            Title = new Text("Mario l'explorateur");
+            Title = new Text("Mario");
             Jouer = new Text("Jouer");
             Options  = new Text("Options");
             Quitter = new Text("Quitter");
@@ -37,15 +36,15 @@ public class ViewMenu {
             Title.setY(200);
             Jouer.setFont(policeTitre);
             Jouer.setFill(Color.WHITE);
-            Jouer.setX(700);
+            Jouer.setX(500);
             Jouer.setY(450);
             Options.setFont(policeTitre);
             Options.setFill(Color.WHITE);
-            Options.setX(700);
+            Options.setX(500);
             Options.setY(600);
             Quitter.setFont(policeTitre);
             Quitter.setFill(Color.WHITE);
-            Quitter.setX(700);
+            Quitter.setX(500);
             Quitter.setY(750);
     }
         private void initBackground(){

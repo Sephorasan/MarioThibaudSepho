@@ -44,7 +44,7 @@ public class ViewHandler extends Application {
         ControllerJeu = new ControllerJeu(this);
         ControllerOptions = new ControllerOptions(this);
 
-        ControllerClavierJeu controllerClavierJeu = new ControllerClavierJeu(this, vj);
+        ControllerClavierJeu controllerClavierJeu = new ControllerClavierJeu(this, vj, vpy, vpm, vpk);
         scene.setOnKeyPressed(controllerClavierJeu);
         scene.setOnKeyReleased(controllerClavierJeu);
 
@@ -79,6 +79,12 @@ public class ViewHandler extends Application {
     public ViewPersoY getVpy(){
         return vpy;
     }
+    public ViewPersoK getVpk(){
+        return vpk;
+    }
+    public ViewPersoM getVpm(){
+        return vpm;
+    }
     ////////////////////////////////////////////////////////
     public void setVueJeu(){
         vj.setVueJeu();
@@ -106,5 +112,8 @@ public class ViewHandler extends Application {
     }
     public void setEventHandlerJeu(ControllerJeu controllerJeu){
         vj.setEvents(controllerJeu);
+        vpy.setEvents(controllerJeu);
+        vpm.setEvents(controllerJeu);
+        vpk.setEvents(controllerJeu);
     }
 }

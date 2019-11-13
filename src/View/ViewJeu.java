@@ -1,7 +1,6 @@
 package View;
 
 import Controller.ControllerJeu;
-import Controller.ControllerMenu;
 import Tool.Path;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
