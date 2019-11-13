@@ -2,6 +2,7 @@ package View;
 
 import Controller.ControllerMenu;
 import Controller.ControllerOptions;
+import Music.Music;
 import Tool.Path;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
@@ -23,9 +24,8 @@ public class ViewOptions {
     private ImageView fond;
     private ImageView mario2;
     private ImageView kirby;
-    private Slider volumeSlider;
+    private Slider musicSlider;
     private Text volumeLabel;
-    private MediaPlayer mp;
 
 
     ViewOptions(Group root) {
@@ -35,7 +35,6 @@ public class ViewOptions {
         initPerso3();
         initPerso4();
         initBackground();
-        updateValues();
         Volume();
     }
 
@@ -97,19 +96,13 @@ public class ViewOptions {
         fond.setFitWidth((int) primaryScreenBounds.getWidth());
     }
     private void Volume(){
-        volumeSlider = new Slider();
-        volumeSlider.setLayoutX(450);
-        volumeSlider.setLayoutY(350);
-        volumeSlider.setPrefWidth(70);
-        volumeSlider.setMaxWidth(250);
-        volumeSlider.setMinWidth(150);
-        volumeSlider.valueProperty().addListener(new InvalidationListener() {
-            public void invalidated(Observable ov) {
-                if (volumeSlider.isValueChanging()) {
-                    mp.setVolume(volumeSlider.getValue() / 100.0);
-                }
-            }
-        });
+        musicSlider = new Slider(0, 100, 100);
+        musicSlider.setBlockIncrement(10);
+        musicSlider.setShowTickLabels(true);
+        musicSlider.valueProperty().addListener(
+                (observable, oldValue, newValue) -> Music.setVolume(newValue.intValue() / 100.));
+        musicSlider.setLayoutX(420);
+        musicSlider.setLayoutY(350);
     }
 
     void setVueOptions() {
@@ -123,7 +116,7 @@ public class ViewOptions {
         root.getChildren().add(texteK);
         root.getChildren().add(RetourOptions);
         root.getChildren().add(volumeLabel);
-        root.getChildren().add(volumeSlider);
+        root.getChildren().add(musicSlider);
     }
 
     public Text getRetour(){
@@ -145,18 +138,6 @@ public class ViewOptions {
         texteK.setOnMouseClicked(co);
     }
 
-    protected void updateValues() {
-        if (volumeSlider != null) {
-            Platform.runLater(new Runnable() {
-                public void run(){
-                    if (!volumeSlider.isValueChanging()) {
-                        volumeSlider.setValue((int) Math.round(mp.getVolume()
-                                * 100));
-                    }
-                }
-            });
-        }
-    }
 }
 
 

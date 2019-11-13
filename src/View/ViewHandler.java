@@ -4,6 +4,7 @@ import Controller.ControllerClavierJeu;
 import Controller.ControllerJeu;
 import Controller.ControllerMenu;
 import Controller.ControllerOptions;
+import Music.Music;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -50,23 +51,20 @@ public class ViewHandler extends Application {
         scene.setOnKeyPressed(controllerClavierJeu);
         scene.setOnKeyReleased(controllerClavierJeu);
 
-        final File file = new File("src/Asset/Son/mario-theme.mp3");
-        final Media media = new Media(file.toURI().toString());
-        final MediaPlayer mediaPlayer = new MediaPlayer(media);
 
-        afficherMenuPrincipal();
+        afficherMenuPrincipal(true);
         primaryStage.setTitle("Mario");
         primaryStage.setFullScreenExitHint("");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setFullScreen(true);
-        mediaPlayer.play();
         primaryStage.show();
     }
     ////////////////////////////////////////////////////////
-    public void afficherMenuPrincipal() {
+    public void afficherMenuPrincipal(Boolean reloadMusic) {
         vm.setVueMenu();
+        if(reloadMusic) Music.startMainMenuMusic();
     }
     ////////////////////////////////////////////////////////
     public Stage getPrimaryStage() {
