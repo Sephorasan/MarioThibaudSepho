@@ -1,12 +1,15 @@
 package View;
 
 import Controller.ControllerClavierJeu;
+import javafx.animation.FadeTransition;
+import javafx.animation.Timeline;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Screen;
-
-import static java.awt.image.ImageObserver.WIDTH;
+import javafx.util.Duration;
 
 
 public class ViewJeu {
@@ -61,9 +64,7 @@ public class ViewJeu {
             mario.setX(mario.getX() + 8);
     }
     public void jump(){
-    if (mario.getY() > -20){
-        mario.setY(mario.getY() -50);
-    }
+
     }
 
 }

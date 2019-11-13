@@ -117,6 +117,7 @@ public class ViewOptions {
         root.getChildren().add(RetourOptions);
         root.getChildren().add(volumeLabel);
         root.getChildren().add(musicSlider);
+        root.getStylesheets().add(getClass().getResource("../Asset/Css/slider.css").toExternalForm());
     }
 
     public Text getRetour(){
