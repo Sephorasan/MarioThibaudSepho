@@ -13,11 +13,13 @@ public class ViewJeu {
     private Group root;
     private ImageView mario;
     private ImageView fond;
+    private ImageView obstacle;
 
     ViewJeu(Group root) {
         this.root = root;
         initBackground();
         initPerso();
+        initObstacle();
     }
 
     private void initBackground(){
@@ -30,15 +32,25 @@ public class ViewJeu {
     private void initPerso() {
         mario = new ImageView("Asset/Image/mario.gif");
         mario.setX(180);
-        mario.setY(530);
+        mario.setY(550);
         mario.setScaleX(0.3);
         mario.setScaleY(0.3);
+    }
+
+    private void initObstacle() {
+        obstacle = new ImageView("Asset/Image/tuyau.png");
+        obstacle.setX(500);
+        obstacle.setY(550);
+        obstacle.setScaleX(0.3);
+        obstacle.setScaleY(0.3);
     }
 
     void setVueJeu(){
         root.getChildren().clear();
         root.getChildren().addAll(fond);
         root.getChildren().add(mario);
+        root.getChildren().add(obstacle);
+
     }
     public void moveLeft() {
         if (mario.getX() > -20) {
