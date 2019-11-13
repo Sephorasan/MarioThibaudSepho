@@ -22,6 +22,9 @@ public class ViewJeu {
     private ImageView fond;
     private ImageView obstacle;
     private ImageView ennemi;
+    private ImageView ennemi2;
+    private ImageView ennemi3;
+
 
     ViewJeu(Group root) {
         this.root = root;
@@ -29,6 +32,9 @@ public class ViewJeu {
         initPerso();
         initObstacle();
         initEnnemi();
+        initEnnemi2();
+        initEnnemi3();
+
     }
 
     private void initBackground(){
@@ -46,27 +52,70 @@ public class ViewJeu {
         mario.setScaleY(0.3);
     }
 
-    private void initEnnemi(){
+    private void initEnnemi() {
         ennemi = new ImageView("Asset/Image/ennemi.gif");
-        ennemi.setX(250);
-        ennemi.setY(600);
+
+
+        ennemi.setX(1000);
+        ennemi.setY(1000);
         ennemi.setScaleX(0.2);
         ennemi.setScaleY(0.2);
         Path path = new Path();
-        path.getElements().add(new MoveTo(20,20));
-        path.getElements().add(new CubicCurveTo(380, 0, 380, 120, 200, 120));
-        path.getElements().add(new CubicCurveTo(0, 120, 0, 240, 380, 240));
+        path.getElements().add(new MoveTo(0, 900));
+        path.getElements().add(new CubicCurveTo(0, 0, 0, 0, 0, 900));
+        path.getElements().add(new CubicCurveTo(0, 0, 0, 0, 0, 0));
         PathTransition pathTransition = new PathTransition();
         pathTransition.setDuration(Duration.millis(4000));
         pathTransition.setPath(path);
         pathTransition.setNode(ennemi);
+
         pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
         pathTransition.setCycleCount(Timeline.INDEFINITE);
         pathTransition.setAutoReverse(true);
         pathTransition.play();
+    }
+        private void initEnnemi2(){
+        ennemi2 = new ImageView("Asset/Image/ennemi.gif");
+        ennemi2.setX(1000);
+        ennemi2.setY(1000);
+        ennemi2.setScaleX(0.2);
+        ennemi2.setScaleY(0.2);
+        Path path2 = new Path();
+        path2.getElements().add(new MoveTo(500,900));
+        path2.getElements().add(new CubicCurveTo(500, 0, 500, 0, 500, 900));
+        path2.getElements().add(new CubicCurveTo(500, 0, 500, 0, 500, 0));
+        PathTransition pathTransition2 = new PathTransition();
+            pathTransition2.setDuration(Duration.millis(3000));
+        pathTransition2.setPath(path2);
+        pathTransition2.setNode(ennemi2);
+
+        pathTransition2.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+        pathTransition2.setCycleCount(Timeline.INDEFINITE);
+        pathTransition2.setAutoReverse(true);
+        pathTransition2.play();
 
     }
+    private void initEnnemi3(){
+        ennemi3 = new ImageView("Asset/Image/ennemi.gif");
+        ennemi3.setX(1000);
+        ennemi3.setY(1000);
+        ennemi3.setScaleX(0.2);
+        ennemi3.setScaleY(0.2);
+        Path path3 = new Path();
+        path3.getElements().add(new MoveTo(1000,900));
+        path3.getElements().add(new CubicCurveTo(1000, 0, 1000, 0, 1000, 900));
+        path3.getElements().add(new CubicCurveTo(1000, 0, 1000, 0, 1000, 0));
+        PathTransition pathTransition3 = new PathTransition();
+        pathTransition3.setDuration(Duration.millis(2500));
+        pathTransition3.setPath(path3);
+        pathTransition3.setNode(ennemi3);
 
+        pathTransition3.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+        pathTransition3.setCycleCount(Timeline.INDEFINITE);
+        pathTransition3.setAutoReverse(true);
+        pathTransition3.play();
+
+    }
     private void initObstacle() {
         obstacle = new ImageView("Asset/Image/tuyau.png");
         obstacle.setX(500);
@@ -81,6 +130,9 @@ public class ViewJeu {
         root.getChildren().add(mario);
         root.getChildren().add(obstacle);
         root.getChildren().add(ennemi);
+        root.getChildren().add(ennemi2);
+        root.getChildren().add(ennemi3);
+
 
     }
     public void moveLeft() {
